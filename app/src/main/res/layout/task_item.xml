@@ -24,10 +24,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title"
-                android:fontFamily="@font/poppins_thin"
+                android:fontFamily="@font/poppins"
                 android:textColor="@color/orange"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/updateButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/edit_icon"
+                android:layout_marginEnd="30dp"
+                android:contentDescription="@string/update_task" />
+
+            <ImageView
+                android:id="@+id/deleteButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/delete_icon"
+                android:contentDescription="@string/delete" />
 
         </RelativeLayout>
 
@@ -36,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/content"
-            android:fontFamily="@font/poppins_thin"
+            android:fontFamily="@font/poppins"
             android:maxLines="3"
             android:layout_marginTop="4dp"/>
 

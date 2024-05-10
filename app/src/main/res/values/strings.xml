@@ -6,4 +6,7 @@
     <string name="tasks">Tasks</string>
     <string name="title">Title</string>
     <string name="content">Content of the task</string>
+    <string name="update_task">Update task</string>
+    <string name="edit_task">Edit Task</string>
+    <string name="delete">Delete</string>
 </resources>
