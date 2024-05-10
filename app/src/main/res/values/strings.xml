@@ -3,4 +3,7 @@
     <string name="add_todo">Add Task</string>
     <string name="enter_the_title">Enter the title</string>
     <string name="enter_the_description">Enter the description</string>
+    <string name="tasks">Tasks</string>
+    <string name="title">Title</string>
+    <string name="content">Content of the task</string>
 </resources>
