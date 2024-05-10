@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddTaskActivity">
+
+    <TextView
+        android:id="@+id/addTaskHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/add_todo"
+        android:textColor="@color/orange"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/saveBtn"
+        android:layout_width="56dp"
+        android:layout_height="38dp"
+        android:layout_alignTop="@+id/addTaskHeading"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-6dp"
+        android:layout_marginEnd="13dp"
+        android:contentDescription="@string/add_todo"
+        android:src="@drawable/add_icon" />
+
+    <EditText
+        android:id="@+id/editTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="@string/enter_the_title"
+        android:padding="12sp"
+        android:textSize="20sp"
+        android:layout_below="@id/addTaskHeading"
+        android:background="@drawable/orange_border"
+        android:layout_marginTop="16dp"
+        android:maxLines="1"
+        android:fontFamily="@font/poppins_thin"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/enter_the_description"
+        android:gravity="top"
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:layout_below="@id/editTaskTitle"
+        android:background="@drawable/orange_border"
+        android:layout_marginTop="12dp"
+        android:inputType="text"
+        android:importantForAutofill="no"
+        android:fontFamily="@font/poppins_thin" />
+
+</RelativeLayout>
