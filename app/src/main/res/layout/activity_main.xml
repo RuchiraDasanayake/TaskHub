@@ -13,30 +13,44 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppins_thin"
+        android:fontFamily="@font/montserrat_bold"
         android:text="@string/tasks"
-        android:textColor="@color/orange"
-        android:layout_marginStart="18dp"
-        android:textSize="24sp" />
+        android:textColor="@color/colorPrimary"
+        android:layout_marginStart="14dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/sortButton"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:textSize="11sp"
+        android:text="@string/sort_by_priority"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tasksHeading" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tasksRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/sortButton"
+        android:layout_marginTop="-4dp"
         android:padding="16dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/colorAccent"
+        android:background="@color/colorAccent"
         android:src="@drawable/add_icon"
-        android:tint="@color/white"
-        android:backgroundTint="@color/orange"
         android:contentDescription="@string/add_todo" />
 
 </RelativeLayout>

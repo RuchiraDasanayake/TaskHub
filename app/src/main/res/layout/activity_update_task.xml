@@ -6,54 +6,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".AddTaskActivity">
+    tools:context=".UpdateTaskActivity">
 
     <TextView
-        android:id="@+id/addTaskHeading"
+        android:id="@+id/editTaskHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:text="@string/add_todo"
-        android:textColor="@color/colorPrimary"
         android:fontFamily="@font/montserrat_bold"
+        android:text="@string/edit_task"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
         android:textSize="24sp" />
 
     <ImageView
-        android:id="@+id/saveBtn"
-        android:layout_width="56dp"
-        android:layout_height="38dp"
-        android:layout_alignTop="@+id/addTaskHeading"
+        android:id="@+id/updateSaveBtn"
+        android:layout_width="60dp"
+        android:layout_height="49dp"
+        android:layout_alignTop="@+id/editTaskHeading"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="-6dp"
-        android:layout_marginEnd="13dp"
+        android:layout_marginTop="-8dp"
+        android:layout_marginEnd="6dp"
         android:contentDescription="@string/add_todo"
         android:src="@drawable/done_icon" />
 
     <EditText
-        android:id="@+id/editTaskTitle"
+        android:id="@+id/updateEditTaskTitle"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@id/addTaskHeading"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/container_border"
-        android:fontFamily="@font/montserrat"
         android:hint="@string/enter_the_title"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:maxLines="1"
         android:padding="12sp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_below="@id/editTaskHeading"
+        android:background="@drawable/container_border"
+        android:layout_marginTop="16dp"
+        android:maxLines="1"
+        android:fontFamily="@font/montserrat"
+        android:inputType="text"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/editTaskDescription"
+        android:id="@+id/updateEditTaskDescription"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:hint="@string/enter_the_description"
         android:gravity="top"
         android:padding="12dp"
-        android:textSize="20sp"
-        android:layout_below="@id/editTaskTitle"
+        android:textSize="18sp"
+        android:layout_below="@id/updateEditTaskTitle"
         android:background="@drawable/container_border"
         android:layout_marginTop="12dp"
         android:inputType="text"
@@ -64,7 +65,7 @@
         android:id="@+id/priorityLabel"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_below="@id/editTaskDescription"
+        android:layout_below="@id/updateEditTaskDescription"
         android:layout_marginTop="16dp"
         android:text="@string/select_priority"
         android:textColor="@android:color/black"
@@ -72,58 +73,43 @@
         android:fontFamily="@font/montserrat" />
 
     <RadioGroup
-        android:id="@+id/editTaskPriority"
+        android:id="@+id/updateEditTaskPriority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/priorityLabel"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/priority1RadioButton"
+            android:id="@+id/priority1RadioButtonUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/priority_level_1" />
 
         <RadioButton
-            android:id="@+id/priority2RadioButton"
+            android:id="@+id/priority2RadioButtonUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/priority_level_2" />
 
         <RadioButton
-            android:id="@+id/priority3RadioButton"
+            android:id="@+id/priority3RadioButtonUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/priority_level_3" />
     </RadioGroup>
 
-    <!-- Add a button for selecting the due date -->
-    <Button
-        android:id="@+id/selectDueDateBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/select_due_date"
-        android:onClick="showDatePickerDialog"
-        android:fontFamily="@font/montserrat"
-        android:textColor="@color/colorPrimary"
-        android:layout_below="@id/editTaskPriority" />
-
-    <!-- Add an EditText field for displaying the selected due date -->
     <EditText
-        android:id="@+id/editTaskDueDate"
+        android:id="@+id/updateEditTaskDueDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/selectDueDateBtn"
+        android:layout_below="@id/updateEditTaskPriority"
         android:layout_marginTop="16dp"
         android:background="@drawable/container_border"
         android:fontFamily="@font/montserrat"
         android:hint="@string/enter_due_date"
         android:importantForAutofill="no"
-        android:inputType="text"
+        android:inputType="date"
         android:padding="12sp"
-        android:textSize="20sp"
-        android:focusable="false"
-        tools:ignore="TextFields" />
-
+        android:textSize="20sp" />
 
 </RelativeLayout>

@@ -3,7 +3,19 @@
     <string name="add_todo">Add Task</string>
     <string name="enter_the_title">Enter the title</string>
     <string name="enter_the_description">Enter the description</string>
-    <string name="tasks">Tasks</string>
+    <string name="tasks">My To-Do List</string>
     <string name="title">Title</string>
     <string name="content">Content of the task</string>
+    <string name="update_task">Update task</string>
+    <string name="edit_task">Edit Task</string>
+    <string name="delete">Delete</string>
+    <string name="priority_level_1">1\n</string>
+    <string name="priority_level_2">2\n</string>
+    <string name="priority_level_3">3\n</string>
+    <string name="select_priority">Select the priority level\n</string>
+    <string name="enter_due_date">Enter the date\n</string>
+    <string name="due_date">Due Date</string>
+    <string name="priority">Priority level </string>
+    <string name="select_due_date">Select due date</string>
+    <string name="sort_by_priority">Sort by Priority</string>
 </resources>

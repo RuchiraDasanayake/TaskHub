@@ -1,5 +1,4 @@
 package com.example.taskhub
-
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         db = TasksDBHelper(this)
+
         tasksAdapter = TasksAdapter(db.getAllTasks(), this)
 
         binding.tasksRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         binding.addButton.setOnClickListener {
             val intent = Intent(this, AddTaskActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.sortButton.setOnClickListener {
+            val sortedTasks = db.getAllTasks().sortedBy { it.priorityLevel }
+            tasksAdapter.refreshTasks(sortedTasks)
         }
     }
 
