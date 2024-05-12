@@ -17,7 +17,6 @@ class UpdateTaskActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         db = TasksDBHelper(this)
-
         taskId = intent.getIntExtra("id", -1)
         if (taskId == -1){
             finish()
@@ -25,15 +24,9 @@ class UpdateTaskActivity : AppCompatActivity() {
         }
 
         val task = db.getTaskById(taskId)
-        if (task != null) {
-            binding.updateEditTaskTitle.setText(task.title)
-        }
-        if (task != null) {
-            binding.updateEditTaskDescription.setText(task.content)
-        }
-        if (task != null) {
-            binding.updateEditTaskDueDate.setText(task.dueDate)
-        }
+        binding.updateEditTaskTitle.setText(task.title)
+        binding.updateEditTaskDescription.setText(task.content)
+        binding.updateEditTaskDueDate.setText(task.dueDate)
 
         binding.updateSaveBtn.setOnClickListener {
             val newTitle = binding.updateEditTaskTitle.text.toString()

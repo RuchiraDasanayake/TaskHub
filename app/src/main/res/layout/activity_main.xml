@@ -5,6 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorSecondary"
+    android:backgroundTint="@color/colorSecondary"
     tools:context=".MainActivity">
 
     <TextView
@@ -50,7 +52,7 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/colorAccent"
         android:background="@color/colorAccent"
-        android:src="@drawable/add_icon"
+        android:src="@drawable/baseline_add_24"
         android:contentDescription="@string/add_todo" />
 
 </RelativeLayout>
