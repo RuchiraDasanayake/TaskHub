@@ -8,7 +8,7 @@
     android:padding="16dp"
     android:background="@color/colorSecondary"
     android:backgroundTint="@color/colorSecondary"
-    tools:context=".UpdateTaskActivity">
+    tools:context=".activity.UpdateTaskActivity">
 
     <TextView
         android:id="@+id/editTaskHeading"

@@ -1,6 +1,6 @@
-package com.example.taskhub
+package com.example.taskhub.adapter
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +9,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.taskhub.activity.UpdateTaskActivity
+import com.example.taskhub.dao.TaskDao
+import com.example.taskhub.entity.TaskEntity
+import com.example.taskhub.R
+import kotlinx.coroutines.*
 
-class TasksAdapter(private var tasks: List<Task>, context: Context): RecyclerView.Adapter<TasksAdapter.TasksViewHolder>() {
+class TasksAdapter(private var tasks: MutableList<TaskEntity>, private val taskDao: TaskDao) :
+    RecyclerView.Adapter<TasksAdapter.TasksViewHolder>() {
 
-    private val db: TasksDBHelper = TasksDBHelper(context)
-    class TasksViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class TasksViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
         val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
         val priorityTextView: TextView = itemView.findViewById(R.id.priorityTextView)
@@ -22,6 +27,7 @@ class TasksAdapter(private var tasks: List<Task>, context: Context): RecyclerVie
         val deleteButton: ImageView = itemView.findViewById(R.id.deleteButton)
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onBindViewHolder(holder: TasksViewHolder, position: Int) {
         val task = tasks[position]
         holder.titleTextView.text = task.title
@@ -37,9 +43,17 @@ class TasksAdapter(private var tasks: List<Task>, context: Context): RecyclerVie
         }
 
         holder.deleteButton.setOnClickListener {
-            db.deleteTask(task.id)
-            refreshTasks(db.getAllTasks())
-            Toast.makeText(holder.itemView.context, "Task deleted", Toast.LENGTH_SHORT).show()
+            GlobalScope.launch(Dispatchers.IO) {
+                taskDao.deleteTask(task.id)
+                // Remove the deleted task from the list
+                tasks.removeAll { it.id == task.id }
+                // Notify adapter of item removal on the main thread
+                withContext(Dispatchers.Main) {
+                    notifyItemRemoved(holder.adapterPosition)
+                    // Show a toast message
+                    Toast.makeText(holder.itemView.context, "Task deleted", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 
@@ -52,9 +66,23 @@ class TasksAdapter(private var tasks: List<Task>, context: Context): RecyclerVie
         return tasks.size
     }
 
-    fun refreshTasks(newTasks: List<Task>){
-        tasks = newTasks
+    // Function to refresh the task list
+    @SuppressLint("NotifyDataSetChanged")
+    fun refreshTasks(newTasks: List<TaskEntity>) {
+        tasks.clear()
+        tasks.addAll(newTasks)
         notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun clearTasks() {
+        tasks.clear()
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun addTasks(allTasks: List<TaskEntity>) {
+        tasks.addAll(allTasks)
+        notifyDataSetChanged()
+    }
 }
