@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@color/colorSecondary"
+    android:backgroundTint="@color/colorSecondary"
     tools:context=".AddTaskActivity">
 
     <TextView
@@ -25,8 +27,7 @@
         android:layout_height="38dp"
         android:layout_alignTop="@+id/addTaskHeading"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="-6dp"
-        android:layout_marginEnd="13dp"
+        android:layout_marginTop="1dp"
         android:contentDescription="@string/add_todo"
         android:src="@drawable/done_icon" />
 
